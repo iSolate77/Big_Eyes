@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+  <section class="profile-dashboard">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-3 profile-dashboard-links text-center">
+          <a href="{% url 'profile' %}"
+            class="profile-dashboard-link my-1 p-2 link-active text-decoration-none">Profile</a>
+          <a href="{% url 'order' %}" class="profile-dashboard-link my-1 p-2 text-decoration-none">Orders</a>
+          <a href="{% url 'profile_update' %}" class="profile-dashboard-link my-1 p-2 text-decoration-none">Update</a>
+        </div>
+        <div class="col-9">
+          <h1 class="display-6 text-center">Profile</h1>
+          <hr>
+          <div class="form-group">
+            <h1 for="username">Username: {{ user.username }}</h1>
+            <h2 for="first_name">First Name: {{ user.first_name }}</h2>
+            <h2 for="last_name">Last Name: {{ user.last_name }}</h2>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock %}

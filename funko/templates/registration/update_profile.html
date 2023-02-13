@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <section class="profile-dashboard">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-3 profile-dashboard-links text-center">
+            <a href="{% url 'profile' %}" class="profile-dashboard-link my-1 p-2 link-active text-decoration-none">Profile</a>
+            <a href="{% url 'order' %}" class="profile-dashboard-link my-1 p-2 text-decoration-none">Orders</a>
+          </div>
+          <div class="col-9">
+            <form method="POST" action="" enctype="multipart/form-data">
+              {% csrf_token %}
+             
+              <div class="form-group">
+                {{ form.as_p }}
+              </div>
+              <button type="submit" class="btn btn-black">Update</button>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+{% endblock %}

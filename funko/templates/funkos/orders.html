@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<section class="profile-dashboard">
+  <div class="container mt-5">
+    <div class="row">
+      {% if order.is_ordered == False %}
+      <h1 class="display-6 text-center">Cart</h1>
+      {% else %}
+      <h1 class="display-6 text-center">Orders</h1>
+      {% endif %}
+      <hr />
+      <div class="col-3 profile-dashboard-links text-center">
+        <a href="{% url 'profile' %}" class="profile-dashboard-link my-1 p-2 text-decoration-none">Profile</a>
+        <a href="{% url 'order' %}" class="profile-dashboard-link my-1 p-2 link-active text-decoration-none">Orders</a>
+      </div>
+      <div class="col-9 pt-1">
+        <table class="table text-center">
+          <thead class="table-dark">
+            <tr>
+              <th>Order #</th>
+              <th>Item Image</th>
+              <th>Order Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>104</td>
+              <td><img src="" class="card-img-top" alt="funko-figure"></td>
+              <td>Order name</td>
+              <td>$15</td>
+              <td>3</td>
+              <td>Shipped</td>
+              <td><a href="#" class="btn btn-black">Request Cancellation</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

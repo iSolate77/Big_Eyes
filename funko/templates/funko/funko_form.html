@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="create-funko mt-5">
+{% if object %}
+  <h1 class="display-3 text-center">Edit Your Funko</h1>
+{% else %}
+  <h1 class="display-3 text-center">Create Your Funko</h1>
+{% endif %}
+  <form method="POST" enctype="multipart/form-data" id="createFunkoForm">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <!-- start step indicators -->
+    <br>
+    <input type="submit" class="btn btn-black w-100 rounded-5" value="Submit" />
+  </form>
+</section>
+{% endblock %}

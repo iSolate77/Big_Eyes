@@ -1,0 +1,199 @@
+/* Custom Properties */
+.bg-black{
+  background: black
+}
+
+/* Custom Buttons */
+.btn-white-outline{
+  background: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn-white-outline:hover{
+  background: white !important;
+  color: black;
+  border: 1px solid white;
+}
+
+.btn-black{
+  background: black ;
+  color: white;
+  border: 2px solid black;
+}
+
+.btn-black:hover{
+  background: white;
+  color: black;
+  border: 2px solid black !important;
+}
+
+.card-img-top{
+  height: 350px
+}
+
+/* Navbar */
+.navbar-brand, .nav-brand:hover{
+  color: white
+}
+
+.nav-link{
+  color: white;
+}
+
+.nav-link:hover{
+  color:rgb(178, 178, 178)
+}
+
+/* Main Area */
+
+section{
+  margin-bottom: 80px;
+}
+
+.splide__slide{
+  height: 80vh;
+  background: rgb(201, 200, 200);
+}
+
+.collection-item{
+  height: 250px;
+  width: 250px;
+  background: rgb(201, 200, 200);
+  margin: 25px;
+}
+
+/* Footer Area */
+.social-icon, .social-icon:hover{
+  color: white;
+}
+
+.copyright{
+  height: 40px;
+}
+
+
+/* Collections Page */
+
+.grid-container{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  padding: 10px;
+}
+
+.grid-item{
+  background: rgb(201, 200, 200);
+  margin: 25px;
+}
+
+.price{
+  font-weight: 700;
+}
+
+/* Multi Form Create Page */
+#createFunkoForm {
+  max-width: 50%;
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  box-shadow: 0px 0px 18px rgb(0 0 0 / 9%);
+  border-radius: 12px;
+}
+#createFunkoForm .form-header {
+  gap: 5px;
+  text-align: center;
+  font-size: .9em;
+}
+#createFunkoForm .form-header .stepIndicator {
+  position: relative;
+  flex: 1;
+  padding-bottom: 30px;
+}
+#createFunkoForm .form-header .stepIndicator.active {
+  font-weight: 600;
+}
+#createFunkoForm .form-header .stepIndicator.finish {
+  font-weight: 600;
+  color: #000000;
+}
+#createFunkoForm .form-header .stepIndicator::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 9;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  border: 3px solid rgb(66, 66, 66);
+}
+#createFunkoForm .form-header .stepIndicator.active::before {
+  background-color: #000000;
+  border: 3px solid rgb(66, 66, 66);
+}
+#createFunkoForm .form-header .stepIndicator.finish::before {
+  background-color: #000000;
+  border: 3px solid rgb(66, 66, 66);
+}
+#createFunkoForm .form-header .stepIndicator::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  width: 100%;
+  height: 3px;
+  background-color: #f3f3f3;
+}
+#createFunkoForm .form-header .stepIndicator.active::after {
+  background-color: black;
+}
+#createFunkoForm .form-header .stepIndicator.finish::after {
+  background-color: #000000;
+}
+#createFunkoForm .form-header .stepIndicator:last-child:after {
+  display: none;
+}
+#createFunkoForm input, #createFunkoForm textarea {
+  padding: 15px 20px;
+  width: 100%;
+  font-size: 1em;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+}
+#createFunkoForm input:focus, #createFunkoForm textarea:focus {
+  border: 1px solid #8b8b8b;
+  box-shadow: none;
+  outline: 0;
+}
+#createFunkoForm input.invalid, #createFunkoForm textarea.invalid{
+  border: 1px solid #ffaba5;
+}
+#createFunkoForm .step {
+display: none;
+}
+#createFunkoForm .form-footer{
+  overflow:auto;
+  gap: 20px;
+}
+#createFunkoForm .form-footer button{
+  background-color: black;
+  border: 1px solid black !important;
+  color: #ffffff;
+  border: none;
+  padding: 13px 30px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  flex: 1;
+  margin-top: 5px;
+}
+#createFunkoForm .form-footer button:hover {
+opacity: 0.8;
+}
+
+#createFunkoForm .form-footer #prevBtn {
+  background-color: #fff;
+  color: black;
+}

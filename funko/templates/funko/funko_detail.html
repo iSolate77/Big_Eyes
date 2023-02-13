@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<section class="mt-5">
+  <div class="container">
+    <div class="row detail-funko align-items-center justify-content-between">
+      <div class="col-4 p-0">
+        <img class="card-img-detail w-100" src="{% static funko.image|cut:'funko/static' %}" />
+      </div>
+      <div class="col-8 p-5">
+        <div class="d-flex justify-content-between">
+          <h1 class="display-5 ">{{ funko.name }}</h1>
+          {% if funko.user == request.user %}
+          <div>
+            <a name="edit" class="btn btn-black" href="{% url 'funko_update' funko.id %}">Edit</a>
+            <a name="delete" class="btn btn-black" href="{% url 'funko_delete' funko.id %}">Delete</a>
+          </div>
+          {% endif %}
+        </div>
+        <hr>
+        <p class="my-1"><strong>Price</strong></p>
+        <span class="d-block mb-2">${{ funko.price }}</span>
+        <p class="my-1"><strong>Quantity</strong></p>
+        <input class="form-control my-2" type="number" min="1" max="99" value="1">
+        <p class="my-1"><strong>Category</strong></p>
+        <p>{{ funko.category }}</p>
+        <p class="my-1"><strong>Description</strong></p>
+        <p>{{ funko.description }}</p>
+        <a name="addToCart" id="" class="btn btn-black btn-lg w-100" href="#" role="button">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="collections mt-5">
+  <div class="container">
+    <h1 class="display-3 text-center">Our Collections</h1>
+    <hr />
+    <div class="grid-container">
+      {% for funko in funkos %}
+      <div class="grid card mt-5" style="width: 18rem">
+        <a href="{% url 'funko_detail' funko.id %}">
+          <img src="{% static funko.image|cut:'funko/static' %}" class="card-img-top" alt="funko-figure" />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title">{{ funko.name }}</h5>
+          <br />
+          <div class="p-1">
+            <span class="d-block price py-2">${{ funko.price }}</span>
+          </div>
+          <a href="{% url 'add_to_cart' funko.id %}" class="btn btn-black w-100 rounded-5">Add To Cart</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

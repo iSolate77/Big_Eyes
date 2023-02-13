@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="cart-items mt-5">
+  <h1 class="display-3 text-center">Cart</h1>
+  <section class="h-100 h-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card">
+            <div class="card-body p-4">
+              <div class="col-lg-7">
+                <h5 class="mb-3">
+                  <a href="{% url 'home' %}" class="text-body text-decoration-none"><i
+                      class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a>
+                </h5>
+                <hr />
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p class="mb-1">Shopping cart</p>
+                  </div>
+                </div>
+                {% for ordered_item in object.items.all %}
+                <div class="row">
+                  <div class="card mb-3 mb-lg-0">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between">
+                        <div class="d-flex flex-row align-items-center">
+                          <div>
+                            <img src="{% static ordered_item.funko.image|cut:'funko/static' %}"
+                              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px" />
+                          </div>
+                          <div class="ms-3">
+                            <h5>{{ ordered_item.funko.name }}</h5>
+                            <p class="small mb-0">
+                              {{ ordered_item.funko.category }}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="d-flex flex-row align-items-center">
+                          <div style="width: 50px">
+                            <input class="form-control text-center mx-2 px-2" type="number"
+                              value="{{ ordered_item.quantity }}" />
+                          </div>
+                          <div>
+                            <h5 class="mb-0 mx-4">{{ ordered_item.funko.price }}</h5>
+                          </div>
+                          <a href="{% url 'remove_from_cart' ordered_item.funko.id %}" class="trash-icon"><i
+                              class="fas fa-trash-alt"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                <div class="col-lg-5">
+                  <div class="card bg-black text-white rounded-3">
+                    <div class="card-body">
+                      <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="mb-0">Address details</h5>
+                      </div>
+                      <form class="mt-4">
+                        <div class="form-outline form-white mb-4">
+                          <label class="d-block form-label" for="typeName">Country</label>
+                          <select class="form-control" name="{{ object.address.country }}" id="">
+                            <option>{{ object.address.country }}</option>
+                          </select>
+                        </div>
+                        <div class="form-outline form-white mb-4">
+                          <label class="d-block form-label" for="typeText">State</label>
+                          <select class="form-control" name="state" id="">
+                            <option value="">{{ object.address.state }}</option>
+                          </select>
+                        </div>
+                        <div class="form-outline form-white mb-4">
+                          <label class="form-label" for="typeText">Address</label>
+                          <input type="text" id="typeText" class="form-control form-control-lg"
+                            placeholder="Manama, Block 55, Road 101, House 123"
+                            value="B {{object.address.building }}, R {{ object.address.street }}" />
+                        </div>
+                      </form>
+                      <hr class="my-4" />
+                      <div class="d-flex justify-content-between">
+                        <p class="mb-2">Subtotal</p>
+                        <p class="mb-2">$100.00</p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p class="mb-2">Shipping</p>
+                        <p class="mb-2">$20.00</p>
+                      </div>
+
+                      <div class="d-flex justify-content-between mb-4">
+                        <p class="mb-2">Total</p>
+                        <p class="mb-2">$120.00</p>
+                      </div>
+
+                      <button type="button" class="btn btn-white btn-block btn-lg text-center w-100">
+                        <span>Checkout
+                          <i class="fa-solid fa-cart-shopping"></i></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+{% endblock %}
